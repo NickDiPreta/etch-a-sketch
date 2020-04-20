@@ -1,0 +1,41 @@
+body{
+  background-color: #c66b3d ;
+  align-content: center;
+}
+
+.grid {
+  display: grid;
+  justify-content: center;
+}
+
+#topButton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body{
+  background-color: #c66b3d ;
+  align-content: center;
+}
+
+h1{
+  text-align: center;
+  color: #26495c;
+}
+
+#container {
+  display: grid;
+  justify-content: center;
+  background-color: #e5e5dc;
+  border-style: solid;
+  border-width: 4px;
+  border-color: #c4a35a;
+  grid-gap: 0em;
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  height:600px;
+  width:50%;
+  margin: 0 auto;
+  margin-top: 100px;
+}

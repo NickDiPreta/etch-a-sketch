@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset ="UTF-8">
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+<h1>Etch-A-Sketch</h1>
+<div id = "topButton"><button onclick="whiteOut()">Start a new sketch</button></div>
+
+
+<div id = "container">
+</div>
+
+<script>
+    let cols = 5;
+    let rows = 5;
+    const columnItem = document.createElement('div');
+    function clearBox(elementID){
+        document.getElementById(elementID).innerHTML = "";
+    }
+
+    function makeGrid(cols,rows){
+        container.style.setProperty('--grid-rows', rows);
+        container.style.setProperty('--grid-cols', cols);
+        
+        for(let i = 0; i<=rows; i++) {
+            columnItem.classList = `grid`;
+            // columnItem.textContent = `${i}`;
+            columnItem.id = `column${i}`;
+            container.appendChild(columnItem);
+            expandC(columnItem);
+        }
+        function expandC(cItem){
+            let i = 1;
+            while (i < cols){
+            const rowItem = document.createElement('div');
+            rowItem.classList = `grid`;
+            // rowItem.textContent = `${i}`;
+            rowItem.id = `row${i}`
+            container.appendChild(rowItem);
+            i++;
+            }
+            }
+        var elements = document.getElementsByClassName('grid');
+            for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('mouseover', colorchange, false);
+            } 
+        }
+
+        makeGrid(cols,rows);
+        function whiteOut() {
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.background = "white";}
+            var rows = prompt("How many rows would you like?");
+            var cols = prompt("Enter How many columns would you like?");
+            clearBox("container");
+            makeGrid(cols,rows);
+            }
+        var elements = document.getElementsByClassName('grid');
+             for (var i = 0; i < elements.length; i++) {
+                    elements[i].addEventListener('mouseover', colorchange, false);
+             } 
+    function colorchange(){
+        this.style.background = '#'+Math.floor(Math.random()*16777215).toString(16);
+        }
+    function mouseOut() {
+        this.style.background = "white";
+        }
+    
+</script>
+
+
+
+</body>
